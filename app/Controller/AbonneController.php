@@ -22,20 +22,34 @@ class AbonneController extends Controller
         ]);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $abonne = $this->isAbonneExistOr404($id);
-        $this->render('app.abonne.show',[
+        $this->render('app.abonne.show', [
             'abonne' => $abonne
         ]);
     }
 
-    private function isAbonneExistOr404($id){
+    public function edit($id)
+    {
+        $abonne = $this->isAbonneExistOr404($id);
+        $this->render('app.abonne.edit', [
+            'abonne' => $abonne
+        ]);
+    }
+    public function delete($id)
+    {
+        $abonne = $this->isAbonneExistOr404($id);
+        AbonneModel::delete($id);
+        $this->redirect('abonnes');
+    }
+
+    private function isAbonneExistOr404($id)
+    {
         $abonne = AbonneModel::findById($id);
-        if(empty($abonne)){
+        if (empty($abonne)) {
             $this->Abort404();
         }
         return $abonne;
     }
-
-
 }
