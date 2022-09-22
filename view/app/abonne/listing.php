@@ -6,7 +6,13 @@
         <div>
             <p><?= $abonne->nom; ?></p>
             <ul>
-                <li><a href="<?= $view->path('abonne', [$abonne->id]); ?>">Show</a></li>
+                <li><a href="<?= $view->path('show', [$abonne->id]); ?>">Show</a></li>
+            </ul>
+            <ul>
+                <li><a href="<?= $view->path('edit', [$abonne->id]); ?>">Edit</a></li>
+            </ul>
+            <ul>
+                <li><a onclick="return confirm('Etes vous vraiment certain de vouloir supprimer cet abonné')" href="<?= $view->path('delete', [$abonne->id]); ?>">Delete</a></li>
             </ul>
         </div>
     <?php } ?>
