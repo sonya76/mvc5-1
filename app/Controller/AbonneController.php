@@ -20,7 +20,21 @@ class AbonneController extends Controller
             'abonnes' => $abonnes,
             'count' => $count
         ]);
-        
+    }
+
+    public function show($id){
+        $abonne = $this->isAbonneExistOr404($id);
+        $this->render('app.abonne.show',[
+            'abonne' => $abonne
+        ]);
+    }
+
+    private function isAbonneExistOr404($id){
+        $abonne = AbonneModel::findById($id);
+        if(empty($abonne)){
+            $this->Abort404();
+        }
+        return $abonne;
     }
 
 
