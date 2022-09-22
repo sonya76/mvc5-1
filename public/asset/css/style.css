@@ -63,3 +63,23 @@ body { font:400 16px/1.3 Verdana, sans-serif;color:#464646; background-color: #f
 .clear:before,.clear:after { content:' '; display:table; }
 .clear:after { clear:both; }
 .clear { *zoom:1;}
+
+/*==========*/
+
+.abonne {
+    margin: 1rem;
+}
+
+.abonne ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.abonne ul li {
+    padding: 1rem;
+}
+
+.error {
+    display: block;
+    color: red;
+}
